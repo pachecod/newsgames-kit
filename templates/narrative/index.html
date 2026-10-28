@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Interactive Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="game-title">Interactive Story</h1>
+      <p id="game-subtitle" class="subtitle"></p>
+    </header>
+
+    <!-- The story draws itself here. -->
+    <section id="screen" aria-label="Story"></section>
+
+    <footer id="game-footer"></footer>
+  </main>
+
+  <noscript><p style="padding:1rem">This story needs JavaScript turned on.</p></noscript>
+
+  <!-- Classic scripts (not ES modules) so the story also works when you
+       double-click index.html, with no server. Order matters.
+       Add ?debug to the address (index.html?debug) to see the story checker. -->
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

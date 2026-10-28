@@ -1,0 +1,14 @@
+# Render Blueprint: publishes everything in games/ as one free static site.
+# The publish-render skill (.claude/skills/publish-render/) walks you through using it.
+#
+# Your site's address comes from `name`. Change it to something unique to you,
+# such as newsgames-yourinitials, before you deploy. Lowercase letters, numbers and hyphens.
+#
+# Only games/ is published. templates/, design/ and the rest of the kit stay private.
+
+services:
+  - type: web
+    runtime: static
+    name: newsgames-student
+    buildCommand: echo "No build step. Publishing games/ as it is."
+    staticPublishPath: ./games

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>News games</title>
+  <style>
+    /* This is the front page of the published site. Each game is a link below. */
+    :root {
+      --paper: #f4f6f8;
+      --surface: #ffffff;
+      --ink: #15202b;
+      --muted: #53606c;
+      --line: #c9d2da;
+      --accent: #0a6c74;
+      --radius: 10px;
+      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #11171d;
+        --surface: #1a232c;
+        --ink: #e8edf1;
+        --muted: #a2afbb;
+        --line: #34414d;
+        --accent: #66c4cb;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1.0625rem/1.55 var(--font-body); }
+    main { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    h1 { font-family: var(--font-display); font-size: 2.1rem; line-height: 1.15; margin: 0 0 .5rem; }
+    .subtitle, footer { color: var(--muted); }
+    ul { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: .75rem; }
+    a.game {
+      display: block; min-height: 48px; padding: .9rem 1rem;
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      color: var(--ink); text-decoration: none;
+    }
+    a.game strong { display: block; color: var(--accent); font-size: 1.1rem; }
+    a.game:hover strong { text-decoration: underline; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    footer { border-top: 1px solid var(--line); padding-top: 1rem; font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>News games</h1>
+    <p class="subtitle">Games made for a journalism class.</p>
+
+    <!-- One <li> per published game. The publish-render skill keeps this list up to date.
+         Copy this pattern:
+         <li><a class="game" href="game-folder-name/"><strong>Game title</strong> One-line description.</a></li> -->
+    <ul>
+    </ul>
+
+    <footer>
+      <p>Each game lists its sources and a way to report errors.</p>
+    </footer>
+  </main>
+</body>
+</html>

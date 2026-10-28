@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>News Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="game-title">News Quiz</h1>
+      <p id="game-subtitle" class="subtitle"></p>
+    </header>
+
+    <!-- The game draws itself here. -->
+    <section id="screen" aria-label="Quiz"></section>
+
+    <footer id="game-footer"></footer>
+  </main>
+
+  <noscript><p style="padding:1rem">This game needs JavaScript turned on.</p></noscript>
+
+  <!-- Classic scripts (not ES modules) so the game also works when you
+       double-click index.html, with no server. Order matters. -->
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
