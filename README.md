@@ -25,6 +25,7 @@ render.yaml                  Render Blueprint: publishes games/ as one static si
 ## Quick start (students)
 
 The kit lives at **https://github.com/pachecod/newsgames-kit**. Each student makes their own copy of it.
+**Students: follow [STUDENT-GUIDE.md](STUDENT-GUIDE.md)** for the full walkthrough, from setup to publishing. The short version:
 
 1. Open Claude Code in any folder (for example your Documents folder) and paste:
 
