@@ -49,12 +49,13 @@ Lowercase letters, numbers and hyphens. If the name is taken, Render may add a f
    - No `git`: on a Mac, running `git --version` offers to install the command line tools. On Windows, the student installs Git from git-scm.com. Stop until that's done.
 2. Find out where this folder pushes: `git remote -v`.
    - **`origin` is the student's own repository** (they made it from the template): skip creating a repository in item 5 below. Commit, then `git push` after a yes.
-   - **`origin` is `pachecod/newsgames-kit`** (they cloned the instructor's kit directly): never push there. Run `git remote rename origin upstream`, then create their own repository in item 5.
+   - **`origin` is `pachecod/newsgames-kit`** (they cloned the instructor's kit directly): never push there. Run `git remote rename origin upstream` and `git remote set-url --push upstream no-push`, then create their own repository in item 5.
+   - **Only `upstream` exists** (the README setup for students without a GitHub account): create their repository in item 5. It becomes `origin`.
    - **No remotes, or not a Git repository at all** (`git status` fails, for example the kit came from a zip): run `git init -b main` if needed, then create their repository in item 5.
 3. Check `git config user.name` and `git config user.email`. If either is empty, ask the student what to use (a GitHub "noreply" email is fine) and set it for this repository only, without `--global`.
 4. Show the student the list of files about to be committed (`git status --short`), then commit: `git add -A` and `git commit -m "Publish news games"`. `.gitignore` already leaves out `.zip` files and system junk.
 5. Create the repository and push (skip if `origin` is already theirs). Recommend a **private** repository: Render can still read it, and the briefs stay private.
-   - **If `gh` is installed:** run `gh auth status`. If the student isn't signed in, ask them to run `gh auth login` themselves in the terminal and follow its prompts (it opens the browser). Then, after a yes: `gh repo create <repo-name> --private --source . --push`.
+   - **If `gh` is installed:** run `gh auth status`. If it's signed in, tell the student the account name and ask whether it's theirs. On a shared computer it may not be. If it isn't, use the "Without `gh`" steps. If the student isn't signed in, ask them to run `gh auth login` themselves in the terminal and follow its prompts (it opens the browser). Then, after a yes: `gh repo create <repo-name> --private --source . --push`.
    - **Without `gh`:** the student goes to `https://github.com/new`, creates an **empty** private repository (no README, no license), and gives you its URL. Then: `git remote add origin <url>` and `git push -u origin main`. If Git asks them to sign in, they do it in the window that opens.
 6. Confirm the push worked: `git log --oneline -1` and `git status` show nothing left to push.
 

@@ -41,14 +41,14 @@ To preview without Claude, open `games/<name>/index.html` in a browser. To test 
 
 These steps are for Claude Code when a student asks it to set up this kit. Explain each step in plain words, and stop if one fails.
 
-1. **Check the tools.** Run `git --version`. If Git is missing on a Mac, running that command offers to install the command line tools. On Windows, the student installs Git from https://git-scm.com. Then run `gh --version` and, if it works, `gh auth status`.
-2. **Pick a folder.** Ask where the kit should go. Suggest `~/newsgames` (or `Documents/newsgames`). Don't use a folder that already has files in it.
+1. **Check the tools.** Run `git --version`. If Git is missing on a Mac, running that command offers to install the command line tools. On Windows, the student installs Git from https://git-scm.com. Then run `gh --version` and, if it works, `gh auth status`. If `gh` is signed in, tell the student the account name and ask: "Is this your GitHub account?" On a shared or lab computer it may be someone else's. If it isn't theirs, don't use `gh` for anything.
+2. **Pick a folder.** Ask where the kit should go. Suggest `~/newsgames` (or `Documents/newsgames`). Check that it doesn't exist yet or is empty (`ls -A <folder>`). If it has files, ask for another name.
 3. **Make the student's own copy.** Ask whether they have a GitHub account.
-   - **GitHub account and `gh` signed in (best):** after a yes, run
-     `gh repo create <their-repo-name> --template pachecod/newsgames-kit --private --clone`
-     inside the parent folder, then rename the cloned folder if needed. This gives them their own private repository, ready for publishing later. If `gh` isn't signed in, ask them to run `gh auth login` themselves and follow its prompts.
+   - **GitHub account and `gh` signed in as them (best):** after a yes, run this from the parent folder, using the folder name as the repository name so the clone lands in the right place:
+     `gh repo create <folder-name> --template pachecod/newsgames-kit --private --clone`
+     This gives them their own private repository, ready for publishing later. If `gh` isn't signed in, ask them to run `gh auth login` themselves and follow its prompts.
    - **GitHub account but no `gh`:** they open https://github.com/pachecod/newsgames-kit, click **Use this template → Create a new repository**, make it private, and give you the new repository's URL. Then `git clone <that-url> <folder>`.
-   - **No GitHub account yet:** `git clone https://github.com/pachecod/newsgames-kit <folder>`, then `git -C <folder> remote rename origin upstream` so a later push can't go to the instructor's repository. They can still build games. Publishing will create their own repository later (see the `publish-render` skill).
+   - **No GitHub account yet (or `gh` is signed in as someone else):** `git clone https://github.com/pachecod/newsgames-kit <folder>`, then `git -C <folder> remote rename origin upstream` and `git -C <folder> remote set-url --push upstream no-push` so a later push can't go to the instructor's repository. They can still build games. Publishing will create their own repository later (see the `publish-render` skill).
 4. **Check it worked.** The folder has `CLAUDE.md`, `.claude/skills/` with four skills, `templates/` and `games/`.
 5. **Hand off.** Tell the student the full path, and that they must now start a **new** Claude Code session with that folder as its working folder. The rules and skills load only then. In the Claude desktop app: start a new session and choose that folder. In a terminal: `cd` into the folder and run `claude`. Don't start building a game in this session.
 
